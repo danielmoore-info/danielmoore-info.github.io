@@ -40,3 +40,50 @@ You selected this USER-ID:
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 
 {% endhighlight %}
+
+
+Install the pass package from your distros package manager.
+
+{% highlight bash %}
+sudo pacman --sync pass
+{% endhighlight %}
+
+Now initialise pass by passing the in ID of the generated GPG key.
+{% highlight bash %}
+gpg --list-keys
+
+pub   rsa4096 2019-05-21 [SC]
+      8F8F7070826647DC61E303D77AF6B9D316BACF56
+uid           [ultimate] Daniel Moore (RSA GPG key for Pass) <danielmoore.info@gmail.com>
+sub   rsa4096 2019-05-21 [E]
+{% endhighlight %}
+
+
+initialize pass by passing in the ID of our GPG key
+
+{% highlight bash %}
+pass init 8F8F7070826647DC61E303D77AF6B9D316BACF56
+{% endhighlight %}
+
+{% highlight bash %}
+pass git init
+pass git remote add origin "https://github.com/danielmoore-info/passdb.git"
+
+pass insert Personal/Social/facebook.com
+mkdir: created directory '/home/daniel/.password-store/Personal'
+mkdir: created directory '/home/daniel/.password-store/Personal/Social'
+Enter password for Personal/Social/facebook.com: 
+Retype password for Personal/Social/facebook.com: 
+[master 872d2ed] Add given password for Personal/Social/facebook.com to store.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Personal/Social/facebook.com.gpg
+
+pass git push -u origin master
+
+{% endhighlight %}
+
+https://git.zx2c4.com/password-store/tree/contrib/importers/lastpass2pass.rb
+
+
+❯ gpg --export -a 8F8F7070826647DC61E303D77AF6B9D316BACF56 > DanielMoorePassDb.pub             
+❯ gpg --export-secret-keys -a 8F8F7070826647DC61E303D77AF6B9D316BACF56 > DanielMoorePassDb.priv
