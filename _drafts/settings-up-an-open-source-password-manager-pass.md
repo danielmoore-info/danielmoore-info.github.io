@@ -5,7 +5,7 @@ date:   2019-05-15 10:25:49 +1000
 categories: jekyll update
 ---
 
-
+[pass](https://www.passwordstore.org/) is an open source password manager built upon the Unix philosophy. Pass uses Gnu Privacy Guard (GPG) which is an open source implementation of Open Pretty Good Privacy (OpenPGP)
 
 
 {% highlight bash %}
@@ -20,11 +20,11 @@ RSA keys may be between 1024 and 4096 bits long.
 What keysize do you want? (2048) 4096
 Requested keysize is 4096 bits
 Please specify how long the key should be valid.
-         0 = key does not expire
-      <n>  = key expires in n days
-      <n>w = key expires in n weeks
-      <n>m = key expires in n months
-      <n>y = key expires in n years
+         n 0 = key does not expire
+         n d = key expires in n days
+         n w = key expires in n weeks
+         n m = key expires in n months
+         n y = key expires in n years
 Key is valid for? (0) 0
 Key does not expire at all
 Is this correct? (y/N) y
@@ -87,3 +87,10 @@ https://git.zx2c4.com/password-store/tree/contrib/importers/lastpass2pass.rb
 
 ❯ gpg --export -a 8F8F7070826647DC61E303D77AF6B9D316BACF56 > DanielMoorePassDb.pub             
 ❯ gpg --export-secret-keys -a 8F8F7070826647DC61E303D77AF6B9D316BACF56 > DanielMoorePassDb.priv
+
+
+❯ gpg --import keys/DanielMoorePassDb.priv
+
+
+
+❯ git clone https://github.com/danielmoore-info/passdb.git .password-store
