@@ -11,11 +11,12 @@ Microsoft has recently announced [WSL2](https://devblogs.microsoft.com/commandli
 
 I wanted to explore the possibility of using WSL2 during for penetration testing, instead of using virtual machines, as they have significant overhead, and WSL2 is supposed to have minimal impact on resource usage. The rest of this blog will look at getting early access to WSL2 and determining if it could be used for penetration testing.
 
- ## Getting WSL2
+ ### Getting WSL2
+
+ **Note: Opting into the program requires you to use a Microsoft online account, they will also change some of your privacy settings for "feedback"**
 
  WSL2 is currently only available to users who have opted in to the Windows Insider Program. To join this program, users can go to Settings > Update & Security > Windows Insider Program and go through the process of joining the program.
 
- **Note: Opting into the program requires you to use a Microsoft online account, they will also change some of your privacy settings for "feedback"**
 
 
 Windows Subsystem for Linux (WSL) provides a compatability layer for running Linux binaries on Windows. This is done by translating system calls to native Windows system calls. However, 
