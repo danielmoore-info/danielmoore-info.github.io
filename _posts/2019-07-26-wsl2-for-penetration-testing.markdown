@@ -14,7 +14,6 @@ I wanted to explore the possibility of using WSL2 during for penetration testing
 
  ### Getting WSL2
 
-
  WSL2 is currently only available to users who have opted in to the Windows Insider Program. To join this program, users can go to Settings > Update & Security > Windows Insider Program and go through the process of joining the program.
 
 
