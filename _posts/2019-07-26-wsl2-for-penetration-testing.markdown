@@ -11,12 +11,21 @@ Microsoft has recently announced [WSL2](https://devblogs.microsoft.com/commandli
 
 I wanted to explore the possibility of using WSL2 during for penetration testing, instead of using virtual machines, as they have significant overhead, and WSL2 is supposed to have minimal impact on resource usage. The rest of this blog will look at getting early access to WSL2 and determining if it could be used for penetration testing.
 
-
- ### Getting WSL2
+## Getting WSL2
 
  **Note: Opting into the program requires you to use a Microsoft online account, they will also change some of your privacy settings for "feedback"**
 
- WSL2 is currently only available to users who have opted in to the Windows Insider Program. To join this program, users can go to Settings > Update & Security > Windows Insider Program and go through the process of joining the program.
+ WSL2 is currently only available to users who have opted in to the Windows Insider Program. To join this program, users can go to **Settings** > **Update & Security** > **Windows Insider Program** and go through the process of joining the program.
+
+ Once you have joined the program, you will need to go to restart your computer. Once you have restarted, go to **Settings** > **Update & Security** and check the latest updates. You need a version of Windows that is released with WSL2 => Windows 10 Insider Preview build 18917. Download and apply these updates.
+
+ After applying the updates and restarting, open an Administrator Powershell and enable WSL2 with the following command (this assumes you have already [enabled](https://docs.microsoft.com/en-us/windows/wsl/install-win10) WSL1):
+
+ ```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+ ```
+
+
 
 
 
