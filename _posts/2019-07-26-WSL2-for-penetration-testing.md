@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "WSL2 for Penetration Testing"
-date:   2019-05-15 10:25:49 +1000
+date:   2019-07-26 10:25:49 +1000
 categories: jekyll update
 ---
 
