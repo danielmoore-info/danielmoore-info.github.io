@@ -2,7 +2,7 @@
 layout: post
 title:  "WSL2 for Penetration Testing"
 date:   2019-07-26 10:25:49 +1000
-categories: jekyll update
+categories: security pentest wsl
 ---
 
 When WSL1 was released, I was excited at the possibility of being able to run docker, and have all my penetration testing tools in a Windows machine. However, as you probably know, WSL1 was quite the let down for these use cases. Firstly WSL1 only translated some Linux system calls to their appropriate Windows sytem calls. Secondly, many important tools did not run on WSL1, for example, nmap. Thirdly, I/O performance was horrible, this was especially noticeable when downloading many files during updated or cloning large github repositories.
@@ -26,11 +26,11 @@ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 wsl --set-default-version 2
 ```
 
-You can the start your linux distro like normal. 
+You can the start your linux distro like normal.
 
 ## WSL2 for Penetration Testing?
 
-WSL1 was not great for penetration testing due to limited support for raw sockets, and no docker. WSL2 appears to have resolved these issues (kind of). 
+WSL1 was not great for penetration testing due to limited support for raw sockets, and no docker. WSL2 appears to have resolved these issues (kind of).
 
 Nmap running on Ubuntu WSL2 works perfectly, as shown in the screenshot below:
 ![WSL2 Nmap](/assets/nmap-wsl2.PNG)
@@ -39,7 +39,10 @@ I have also confirmed that it is possible to run docker containers in WSL2, for 
 
 ![WSL2 Empire](/assets/wsl2-empire.PNG)
 
+## Limitations
+
 WSL2 does have a few limitations which limit it's usefulness for penetration testing. Most notably:
+
 - No USB or GPU passthrough -> Limitation for wireless penetration testing and password cracking.
 - Requires Hyper-v which means VMware and VirtualBox versions < 6 cannot run.
 - Networking is currently implemented via 'NAT' mode (As opposed to bridged). This means the Linux environment is on a different broadcast domain then the host machine, making layer 2 attacks impossible from WSL2. This networking also means listeners, such as those in Metasploit or Empire do not work out of the box. However, the following [Powershell script](https://github.com/microsoft/WSL/issues/4150) can be used to forward ports from the Windows machine to WSL2 hosts.
